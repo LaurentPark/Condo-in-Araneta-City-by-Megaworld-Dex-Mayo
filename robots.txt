@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://laurentpark.github.io/Condo-in-Araneta-City-by-Megaworld-Dex-Mayo/sitemap.xml
