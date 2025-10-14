@@ -651,7 +651,7 @@ section {
   
 }
 .listings, .units {
-  padding: 40px;
+  padding: 10px;
   background-color: #f5f5f5;
 }
 .listing-card, .unit-card {
