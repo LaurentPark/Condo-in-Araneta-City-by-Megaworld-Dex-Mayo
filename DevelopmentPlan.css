@@ -134,7 +134,7 @@ header nav a:hover::after {
 /* ===== GALLERY SECTION ===== */
 .gallery-section {
   padding: 80px 40px;
-  background: #6EC7C6;
+  background: #fff;
   text-align: center;
 }
 
@@ -231,7 +231,7 @@ header nav a:hover::after {
   }
 
   .gallery-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
