@@ -4,30 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dex Mayo – Licensed Real Estate Agent</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="DevelopmentPlan.css">
 </head>
 <!-- Header / Navigation -->
-    <header>
-        <div class="logo">Dex Mayo</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-    </header>
+   <header>
+  
+  <nav id="navbar">
+    <ul>
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="index.html#laurent-park">About Us</a></li>
+      <li><a href="index.html#listings">Features</a></li>
+      <li><a href="index.html#units">Properties</a></li>
+      <li><a href="DevelopmentPlan.html#amenities">Amenities</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="#testimonials">Location</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hamburger icon -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="logo">Dex Mayo</div>
+</header>
 <body>
-<img src="dev2/dev1.jpeg" alt="Picture 1">
-<img src="dev2/square.jpeg" alt="Picture 2">
-<img src="dev2/coliseum.jpeg" alt="Picture 3">
-<img src="dev2/mall2.jpeg" alt="Picture 4">
-<img src="dev2/charging.jpeg" alt="Picture 5">
-<img src="dev2/resto.jpeg" alt="Picture 6">
-<img src="dev2/mary.jpeg" alt="Picture 7">
-<img src="dev2/cine.jpeg" alt="Picture 8">
-<img src="dev2/garden.jpeg" alt="Picture 9">
-<img src="dev2/garden2.jpeg" alt="Picture 10">
-<img src="dev2/shopwise.jpeg" alt="Picture 11">
+<section class="gallery-section" id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-container">
+    <img src="dev2/dev1.jpeg" alt="Picture 1">
+    <img src="dev2/square.jpeg" alt="Picture 2">
+    <img src="dev2/coliseum.jpeg" alt="Picture 3">
+    <img src="dev2/mall2.jpeg" alt="Picture 4">
+    <img src="dev2/charging.jpeg" alt="Picture 5">
+    <img src="dev2/resto.jpeg" alt="Picture 6">
+    <img src="dev2/mary.jpeg" alt="Picture 7">
+    <img src="dev2/cine.jpeg" alt="Picture 8">
+    <img src="dev2/garden.jpeg" alt="Picture 9">
+    <img src="dev2/garden2.jpeg" alt="Picture 10">
+    <img src="dev2/shopwise.jpeg" alt="Picture 11">
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+
 </body>
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".gallery-container img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "block";
+    lightboxImg.src = img.src;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+window.addEventListener("click", e => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+
+// ===== HAMBURGER MENU TOGGLE =====
+const hamburger = document.getElementById('hamburger');
+const navbar = document.getElementById('navbar');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navbar.classList.toggle('active');
+});
+</script>
+
  </html>
