@@ -75,25 +75,7 @@
   }
   </script>
 </head>
-
 <body>
-    <!-- Header / Navigation -->
-    <!--<header>
-        <div class="logo">Dex Mayo</div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#listings">Properties</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>-->
-
     <!-- 1. Hero Section -->
 <section id="hero" class="hero">
   <div class="hero-overlay">
@@ -106,63 +88,191 @@
   </div>
 </section>
 
-  <section class="image-section">
-  <img src="araneta.jpeg" alt="Araneta" class="scroll-img">
-</section>
-
-
- <!-- 4. Featured Listings -->
-    <section id="listings" class="listings">
-        <h2>Featured Properties</h2>
-        <div class="listing-grid">
-            <div class="listing-card">
-                <img src="dev09.jpeg" alt="Property 1">
-                <h3>Rent to Own</h3>
-                <a href="DevelopmentPlan.html" class="btn">View Now</a>
-            </div>
-            <div class="listing-card">
-                <img src="dev0.jpeg" alt="Property 2">
-                <h3>Pre-Selling</h3>
-                <a href="dev2.html" class="btn">View Now</a>
-            </div>
-            <div class="listing-card">
-                <img src="dev2/line2.jpeg" alt="Property 3">
-                <h3>Location Overview</h3>
-                <a href="location.html" class="btn">View Now</a>
-            </div>
-        </div>
-    </section>
-   
-<section id="units" class="units">
-  <h2>Available Units</h2>
-  <div class="units-container">
+<section id="laurent-park" aria-labelledby="laurent-park-title" class="lp-section">
+  <div class="lp-inner">
     
-    <!-- Card 1 -->
-    <div class="unit-card">
-      <img src="dev2/studio2.jpeg" alt="1bed">
-      <h3>Studio with balcony</h3>
-      <p>Perfect for young professionals or students. Modern design with city views.</p>
-      <a href="studio.html" class="btn">View Details</a>
+    <div class="lp-visual">
+      <img src="araneta.jpeg" alt="Laurent Park" />
     </div>
 
-    <!-- Card 2 -->
-    <div class="unit-card">
-      <img src="dev2/1bed111.jpeg" alt="2bed">
-      <h3>1 Bedroom w/ balcony</h3>
-      <p>Spacious 2-bedroom unit ideal for couples or small families.</p>
-      <a href="1bed.html" class="btn">View Details</a>
-    </div>
+    <div class="lp-content">
+      <h2 id="laurent-park-title">Laurent Park</h2>
+      <p class="lp-lead">
+        This amazing development, which boasts a harmonious mix of architectural genius and modern aesthetics,
+        is intended to enrich your living. Each unit at Laurent Park offers a haven where comfort and style
+        harmoniously combine thanks to great attention to detail.
+      </p>
 
-    <!-- Card 3 -->
-    <div class="unit-card">
-      <img src="dev2/2bed222.jpeg" alt="3bed">
-      <h3>2 Bedroom w/ balcony</h3>
-      <p>Luxury 2-bedroom unit with balcony and premium amenities.</p>
-      <a href="2bed.html" class="btn">View Details</a>
-    </div>
+      <ul class="lp-features" aria-hidden="false">
+        <li><strong>Urban luxury:</strong> Sophistication meets convenience in every detail.</li>
+        <li><strong>Resort-like grounds:</strong> Lush flora and open spaces for tranquility within the city.</li>
+        <li><strong>Smart living:</strong> Modern amenities and integrated conveniences across Araneta City.</li>
+      </ul>
 
+      <p class="lp-paragraph">
+        Residents of Laurent Park have exclusive access to a wide range of top-notch services and conveniences,
+        located throughout the bustling Araneta City landscape. Experience the calming embrace of landscaped gardens
+        and wide-open spaces as this sanctuary offers a tranquil retreat from the busy metropolis outside.
+      </p>
+
+      <p class="lp-highlight">
+        At Laurent Park, where sophistication meets convenience and aspirations become reality, experience the
+        pinnacle of urban luxury.
+      </p>
+
+      <div class="lp-actions">
+        <a class="lp-cta" href="https://megaworldinternational.com/properties/laurent-park/" title="Learn more about Laurent Park">Know more about Laurent Park — A Smart Condo Tower</a>
+        <a class="lp-secondary" href="#contact" title="Contact an agent about Laurent Park">Contact an agent</a>
+      </div>
+    </div>
+  </div>
+</section><!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Featured Listings -->
+<section id="listings" class="listings">
+  <h2>Featured Properties</h2>
+  <div class="swiper listings-swiper">
+    <div class="swiper-wrapper listing-grid">
+      <div class="swiper-slide listing-card">
+        <img src="dev09.jpeg" alt="Manhattan Plaza">
+        <h3>Rent to Own</h3>
+        <a href="DevelopmentPlan.html" class="btn">View Now</a>
+      </div>
+      <div class="swiper-slide listing-card">
+        <img src="dev0.jpeg" alt="Development Plan 2">
+        <h3>Pre-Selling</h3>
+        <a href="dev2.html" class="btn">View Now</a>
+      </div>
+      <div class="swiper-slide listing-card">
+        <img src="dev2/line2.jpeg" alt="Location Overview">
+        <h3>Location Overview</h3>
+        <a href="location.html" class="btn">View Now</a>
+      </div>
+    </div>
+    <div class="swiper-pagination listings-pagination"></div>
+    <div class="swiper-button-prev listings-prev"></div>
+    <div class="swiper-button-next listings-next"></div>
   </div>
 </section>
+
+<!-- Available Units -->
+<section id="units" class="units">
+  <h2>Available Units</h2>
+  <div class="swiper units-swiper">
+    <div class="swiper-wrapper units-container">
+      <div class="swiper-slide unit-card">
+        <img src="dev2/studio2.jpeg" alt="Studio with balcony">
+        <h3>Studio with balcony</h3>
+        <p>Perfect for young professionals or students.</p>
+        <a href="studio.html" class="btn">View Details</a>
+      </div>
+      <div class="swiper-slide unit-card">
+        <img src="dev2/1bed111.jpeg" alt="1 Bedroom w/ balcony">
+        <h3>1 Bedroom w/ balcony</h3>
+        <p>Spacious 1-bedroom unit ideal for couples or small families.</p>
+        <a href="1bed.html" class="btn">View Details</a>
+      </div>
+      <div class="swiper-slide unit-card">
+        <img src="dev2/2bed222.jpeg" alt="2 Bedroom w/ balcony">
+        <h3>2 Bedroom w/ balcony</h3>
+        <p>Luxury 2-bedroom unit with balcony and premium amenities.</p>
+        <a href="2bed.html" class="btn">View Details</a>
+      </div>
+    </div>
+    <div class="swiper-pagination units-pagination"></div>
+    <div class="swiper-button-prev units-prev"></div>
+    <div class="swiper-button-next units-next"></div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  // Featured Listings Swiper
+  const listingsSwiper = new Swiper(".listings-swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".listings-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".listings-next",
+      prevEl: ".listings-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  // Available Units Swiper
+  const unitsSwiper = new Swiper(".units-swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".units-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".units-next",
+      prevEl: ".units-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+</script>
+<!-- Amenities Section -->
+<section id="amenities" class="amenities">
+  <h2>Building Amenities</h2>
+  <div class="amenities-grid">
+    <div class="amenity-box">
+      <h3>Swimming Pool</h3>
+      <p>Relax and unwind in our resort-style swimming pool.</p>
+    </div>
+    <div class="amenity-box">
+      <h3>Fitness Gym</h3>
+      <p>Stay active with state-of-the-art fitness equipment.</p>
+    </div>
+    <div class="amenity-box">
+      <h3>Playground</h3>
+      <p>A safe and fun space for kids and families to enjoy.</p>
+    </div>
+    <div class="amenity-box">
+      <h3>Grand Lobby</h3>
+      <p>Welcome guests with elegance in our spacious modern lobby.</p>
+    </div>
+  </div>
+</section>
+
+
 <section id="services" class="services">
   <h2>Services and Achievements</h2>
   <div class="services-gallery">
@@ -203,8 +313,10 @@
 </section>
 
 
+
+
 <!-- About Me Section -->
-<section class="about-me">
+<section id="about" class="about-me">
   <div class="container">
     <img src="dex1.jpeg" alt="Agent Photo" class="about-img">
     <div class="about-text">
@@ -252,11 +364,14 @@
   </div>
 </section>
 
-
+ 
     <footer>
         <p>&copy; 2025 Angela Mayo. All rights reserved.</p>
     </footer>
-
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
+
