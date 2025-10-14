@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unit Modal Demo</title>
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" href="DevelopmentPlan.css" />
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      background:#f6f7fb; 
+      margin:0; 
+      color:#222; 
+    }
+    h2 { 
+      text-align:center; 
+      margin:20px 0; 
+      font-size: 1.6rem;
+    }
+
+    /* Shared layout */
+    .unit-container, .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px auto;
+      max-width: 1100px;
+      padding: 0 15px;
+    }
+
+    .Unit, .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 12px;
+      transition: transform 0.25s ease;
+    }
+    .Unit:hover, .card:hover { transform: translateY(-4px); }
+
+    .Unit img, .card img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      display:block;
+      transition: transform 0.25s ease;
+    }
+    .Unit img:hover, .card img:hover { transform: scale(1.03); }
+
+    .card h3 { margin: 12px 0 5px; font-size: 1rem; }
+    .card p { font-size: 14px; color:#666; padding: 0 12px 12px; line-height: 1.4; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+    }
+    .modal[aria-hidden="false"] { display:flex; }
+
+    .modal-content {
+      max-width: 95%;
+      max-height: 75vh;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      object-fit: contain;
+    }
+
+    #caption {
+      margin-top: 10px;
+      color: #e8e8e8;
+      text-align: center;
+      font-size: 15px;
+      max-width: 95%;
+      line-height: 1.4;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px; 
+      right: 16px;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .close:hover { color: #ff8888; }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 34px;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      padding: 6px 10px;
+    }
+    .prev { left: 12px; }
+    .next { right: 12px; }
+    .prev:hover, .next:hover { color: #ddd; }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      h2 { font-size: 1.4rem; }
+      .card p { font-size: 13px; }
+      .modal-content { max-height: 70vh; }
+    }
+
+    @media (max-width: 480px) {
+      h2 { font-size: 1.2rem; }
+      .card h3 { font-size: 0.95rem; }
+      .card p { font-size: 12px; }
+      .prev, .next { font-size: 26px; }
+      .close { font-size: 28px; }
+    }
+    /* Change arrow color */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: #6EC7C6;   /* gold */
+  font-size: 28px;  /* bigger arrow */
+  font-weight: bold;
+}
+
+/* Hover effect */
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  color: #6EC7C6; /* darker gold on hover */
+}
+
+  </style>
+  
+</head>
+<header>
+  
+  <nav id="navbar">
+    <ul>
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="index.html#laurent-park">About Us</a></li>
+      <li><a href="index.html#listings">Features</a></li>
+      <li><a href="index.html#units">Properties</a></li>
+      <li><a href="DevelopmentPlan.html#amenities">Amenities</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="#testimonials">Location</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hamburger icon -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<body>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Development Features</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="tower.jpeg" alt="The Iconic Tower">
+      </div>
+      <div class="card">
+        <img src="tourism.jpeg" alt="Tourism Estate & Heritage House">
+      </div>
+      <div class="card">
+        <img src="cyber.jpeg" alt="Araneta City Cyberpark">
+      </div>
+    </div>
+  </section>
+
+ <!-- Amenities -->
+<section id="amenities">
+  <h2>Amenities & Lifestyle</h2>
+
+  <!-- Swiper container -->
+  <div class="swiper amenities-swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="manhattan/pool.jpeg" alt="Swimming Pool">
+          <h3>Swimming Pool</h3>
+          <p>Relax and unwind at our resort-style pool, surrounded by landscaped gardens and a refreshing ambiance.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="manhattan/gym.jpeg" alt="Fitness Gym">
+          <h3>Fitness Gym</h3>
+          <p>Stay fit and energized with our fully equipped gym featuring modern machines and free weights.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="manhattan/game.jpeg" alt="Game Room">
+          <h3>Game Room</h3>
+          <p>Enjoy recreational time with friends and family in our dedicated game and entertainment area.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="manhattan/garden.jpeg" alt="Garden">
+          <h3>Garden</h3>
+          <p>Take a peaceful stroll or simply relax in our beautifully landscaped garden spaces.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="manhattan/footbridge.jpeg" alt="Footbridge">
+          <h3>Footbridge</h3>
+          <p>Conveniently connect to key areas of the community through our safe and accessible footbridge.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pagination & Arrows -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+
+  <!-- Units -->
+  <section class="unit-types">
+    <h2>Unit Types & Details</h2>
+    <div class="unit-container">
+      <div class="Unit">
+        <img src="manhattan/mapstudio.jpeg"
+             alt="Studio Unit"
+             data-images="manhattan/detail1.jpeg, manhattan/detail2.jpeg">
+      </div>
+      <div class="Unit">
+        <img src="manhattan/mapbed1.jpeg"
+             alt="1 Bedroom Unit"
+             data-images="manhattan/detail1.jpeg, manhattan/detail2.jpeg">
+      </div>
+      <div class="Unit">
+        <img src="manhattan/mapbed2.jpeg"
+             alt="2 Bedroom Unit"
+             data-images="manhattan/detail1.jpeg, manhattan/detail2.jpeg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal" aria-hidden="true">
+    <span class="close" id="closeModal">&times;</span>
+    <span class="prev" id="prevBtn">&#10094;</span>
+    <span class="next" id="nextBtn">&#10095;</span>
+    <img class="modal-content" id="modalImg" src="" alt="">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const caption = document.getElementById('caption');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const closeBtn = document.getElementById('closeModal');
+
+      let modalImages = [];
+      let modalIndex = 0;
+
+      document.querySelectorAll('.Unit img, .card img').forEach(img => {
+        img.addEventListener('click', () => {
+          const raw = img.dataset.images || img.src;
+          modalImages = raw.split(',').map(s => s.trim()).filter(Boolean);
+          modalIndex = 0;
+          caption.textContent = img.alt || '';
+          openModal();
+        });
+      });
+
+      function openModal() {
+        modal.setAttribute('aria-hidden', 'false');
+        updateModalImage();
+        updateNavVisibility();
+      }
+
+      function updateModalImage() {
+        modalImg.src = modalImages[modalIndex];
+        modalImg.alt = caption.textContent || 'Image';
+      }
+
+      function updateNavVisibility() {
+        if (modalImages.length <= 1) {
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+        } else {
+          prevBtn.style.display = 'block';
+          nextBtn.style.display = 'block';
+        }
+      }
+
+      prevBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        modalIndex = (modalIndex - 1 + modalImages.length) % modalImages.length;
+        updateModalImage();
+      });
+
+      nextBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        modalIndex = (modalIndex + 1) % modalImages.length;
+        updateModalImage();
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (modal.getAttribute('aria-hidden') === 'true') return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') {
+          modalIndex = (modalIndex + 1) % modalImages.length;
+          updateModalImage();
+        }
+        if (e.key === 'ArrowLeft') {
+          modalIndex = (modalIndex - 1 + modalImages.length) % modalImages.length;
+          updateModalImage();
+        }
+      });
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        caption.textContent = '';
+      }
+    });
+     const swiper = new Swiper(".amenities-swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      320: { slidesPerView: 1 },   // mobile
+      768: { slidesPerView: 2 },   // tablet
+      1024: { slidesPerView: 3 }   // desktop
+    }
+  });
+   const hamburger = document.getElementById('hamburger');
+  const navbar = document.getElementById('navbar');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navbar.classList.toggle('active');
+  });
+  </script>
+</body>
+</html>
